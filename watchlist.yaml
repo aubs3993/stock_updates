@@ -22,16 +22,17 @@
 companies:
   - ticker: SATS
     company: EchoStar Corporation
-    # no focus_areas -> uses the default set in CLAUDE.md
+    focus_areas:
+      - "spectrum-sale proceeds: timing and receipt of the AT&T payment (and the deferred $183M DISH DBS coupon it needs to cure)"
+      - "the SpaceX spectrum payment and EchoStar's SpaceX equity stake: terms, valuation marks, lock-ups, monetization"
 
   - ticker: SPCX
     company: Space Exploration Technologies Corp. (SpaceX)
     cik: 1181412  # pre-IPO: pins the EDGAR identity even if the ticker map lags
     focus_areas:
-      - "IPO progress: S-1 amendments, pricing terms, listing date"
-      - Starlink subscriber and revenue growth
-      - Starship program milestones and launch cadence
-      - government contracts (NASA, DoD) and the EchoStar spectrum deal
+      - "IPO terms in each revised S-1/S-1A: price, share count, valuation, offering structure"
+      - "lock-up terms and any changes to lock-up language"
+      - "new share issuance and dilution: primary vs. secondary mix, any follow-on offerings"
 
   # To add more later, copy the pattern above. Optional focus_areas example:
   # - ticker: NVDA
