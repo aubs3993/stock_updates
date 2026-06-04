@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "ticker": "SATS",
+      "company": "EchoStar Corporation",
+      "url": "https://www.reuters.com/business/media-telecom/echostar-explores-options-spectrum-sale-2026-05-28/?utm_source=x&utm_medium=social",
+      "headline": "EchoStar explores options for spectrum sale",
+      "publication": "Reuters",
+      "date": "2026-05-28"
+    },
+    {
+      "ticker": "SATS",
+      "company": "EchoStar Corporation",
+      "url": "https://www.barrons.com/articles/echostar-spectrum-sale-copy",
+      "headline": "EchoStar explores options for spectrum sale",
+      "publication": "Barron's",
+      "date": "2026-05-29"
+    },
+    {
+      "ticker": "SATS",
+      "company": "EchoStar Corporation",
+      "url": "https://www.fiercewireless.com/wireless/echostar-boost-mobile-network-expansion",
+      "headline": "EchoStar's Boost Mobile expands 5G coverage to 12 new markets",
+      "publication": "Fierce Wireless",
+      "date": "2026-06-02"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# stock_updates watchlist
+# ---------------------------------------------------------------------------
+# Add one entry per company you want tracked. Edit this file and commit it —
+# the routine reads it fresh on every run.
+#
+# Fields per entry:
+#   ticker        (required)  Stock ticker symbol, e.g. SATS.
+#                             Use null for a private company with no SEC filings.
+#   company       (required)  Company name as you'd recognize it.
+#   cik           (optional)  Explicit SEC CIK number. Use when the ticker isn't
+#                             in the SEC ticker map yet (pre-IPO) or for a
+#                             private company that still files with the SEC.
+#   focus_areas   (optional)  A list of things to prioritize for THIS company.
+#                             If omitted, the default focus areas in CLAUDE.md
+#                             are used.
+#
+# Notes:
+#   - ticker and company are always paired.
+#   - A company with ticker: null and no cik is tracked via web search only.
+# ---------------------------------------------------------------------------
+
+companies:
+  - ticker: SATS
+    company: EchoStar Corporation
+    # no focus_areas -> uses the default set in CLAUDE.md
+
+  - ticker: SPCX
+    company: Space Exploration Technologies Corp. (SpaceX)
+    cik: 1181412  # pre-IPO: pins the EDGAR identity even if the ticker map lags
+    focus_areas:
+      - "IPO progress: S-1 amendments, pricing terms, listing date"
+      - Starlink subscriber and revenue growth
+      - Starship program milestones and launch cadence
+      - government contracts (NASA, DoD) and the EchoStar spectrum deal
+
+  # To add more later, copy the pattern above. Optional focus_areas example:
+  # - ticker: NVDA
+  #   company: NVIDIA Corporation
+  #   focus_areas:
+  #     - data center GPU demand and supply
+  #     - export controls and China revenue

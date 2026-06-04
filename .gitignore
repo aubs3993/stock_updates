@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+# per-run scratch output from manual dry-runs
+/edgar_new.json
+/web_new.json
+/web_items.json
+/ledger.json
+/digest.json

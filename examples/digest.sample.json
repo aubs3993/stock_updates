@@ -1,0 +1,39 @@
+{
+  "date": "2026-06-04",
+  "companies": [
+    {
+      "ticker": "SATS",
+      "company": "EchoStar Corporation",
+      "items": [
+        {
+          "source": "web",
+          "item_type": "news",
+          "publication": "Fierce Wireless",
+          "headline": "EchoStar's Boost Mobile expands 5G coverage to 12 new markets",
+          "summary": "Boost Mobile switched on its 5G network in 12 additional markets, continuing the buildout tied to EchoStar's FCC commitments.",
+          "url": "https://www.fiercewireless.com/wireless/echostar-boost-mobile-network-expansion",
+          "event_date": "2026-06-02",
+          "focus_area": "Major business news"
+        },
+        {
+          "source": "edgar",
+          "item_type": "8-K",
+          "headline": "8-K — Current report",
+          "summary": "EchoStar disclosed a new $500M senior notes offering to refinance debt maturing in 2027.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1868275/000110465926061235/0001104659-26-061235-index.htm",
+          "event_date": "2026-06-03",
+          "focus_area": "Capital structure & financing"
+        }
+      ]
+    }
+  ],
+  "baseline_tickers": ["NVDA"],
+  "errors": [
+    {
+      "ticker": null,
+      "company": "Example Private Co",
+      "reason": "web search timed out"
+    }
+  ],
+  "tracked_tickers": ["SATS", "NVDA"]
+}

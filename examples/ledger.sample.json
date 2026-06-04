@@ -1,0 +1,16 @@
+{
+  "rows": [
+    {
+      "key": "0001104659-26-061234",
+      "ticker": "SATS",
+      "source": "edgar",
+      "headline": "8-K — Current report"
+    },
+    {
+      "key": "caa46a17e52cc5238b4dcfc2f8a7b95918bcd831",
+      "ticker": "SATS",
+      "source": "web",
+      "headline": "EchoStar explores options for spectrum sale"
+    }
+  ]
+}
