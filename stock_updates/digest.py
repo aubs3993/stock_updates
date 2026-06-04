@@ -75,26 +75,46 @@ def build(data, heartbeat=False):
             heading = _company_heading(company)
             text_lines.append("")
             text_lines.append(heading)
-            html_parts.append(f"<h3>{html_mod.escape(heading)}</h3>")
-            html_parts.append("<ul>")
+            text_lines.append("=" * len(heading))
+            html_parts.append(f"<h3 style=\"margin:14px 0 2px\">{html_mod.escape(heading)}</h3>")
             for item in _sorted_items(company["items"]):
                 label = _item_label(item)
-                summary = (item.get("summary") or item.get("headline") or "").strip()
+                headline = (item.get("headline") or "").strip()
+                # summary may be one or more paragraphs (newline-separated);
+                # major filings warrant up to two — see RUNBOOK "Summarize".
+                summary = (item.get("summary") or headline or "").strip()
+                paragraphs = [p.strip() for p in summary.splitlines() if p.strip()]
+                if not paragraphs:
+                    continue
                 url = (item.get("url") or "").strip()
                 focus = (item.get("focus_area") or "").strip()
-                focus_text = f" [{focus}]" if focus else ""
-                text_lines.append(f"  {label}: {summary}{focus_text}")
+                # the label already names the form — don't repeat it in the title
+                item_type = (item.get("item_type") or "").strip()
+                if headline and item_type and headline.upper().startswith(item_type.upper()):
+                    headline = headline[len(item_type):].lstrip(" —–-:").strip()
+                    if headline.lower() == "filing":
+                        headline = ""
+                title = f"{label} — {headline}" if headline else label
+
+                text_lines.append("")
+                text_lines.append(f"{title}{f'  [{focus}]' if focus else ''}")
+                for para in paragraphs:
+                    text_lines.append(f"  {para}")
                 if url:
-                    text_lines.append(f"      {url}")
-                link = (
-                    f' — <a href="{html_mod.escape(url, quote=True)}">source</a>' if url else ""
-                )
+                    text_lines.append(f"  source: {url}")
+
                 focus_html = f" <em>[{html_mod.escape(focus)}]</em>" if focus else ""
                 html_parts.append(
-                    f"<li><strong>{html_mod.escape(label)}</strong>: "
-                    f"{html_mod.escape(summary)}{focus_html}{link}</li>"
+                    f"<p style=\"margin:10px 0 2px\"><strong>{html_mod.escape(title)}</strong>"
+                    f"{focus_html}</p>"
                 )
-            html_parts.append("</ul>")
+                body = [
+                    f"<p style=\"margin:4px 0\">{html_mod.escape(p)}</p>" for p in paragraphs
+                ]
+                if url:
+                    link = f' <a href="{html_mod.escape(url, quote=True)}">[source]</a>'
+                    body[-1] = body[-1][:-len("</p>")] + link + "</p>"
+                html_parts.extend(body)
     else:
         text_lines.append("No updates today.")
         html_parts.append("<p>No updates today.</p>")

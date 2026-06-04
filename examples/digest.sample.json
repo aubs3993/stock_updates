@@ -10,7 +10,7 @@
           "item_type": "news",
           "publication": "Fierce Wireless",
           "headline": "EchoStar's Boost Mobile expands 5G coverage to 12 new markets",
-          "summary": "Boost Mobile switched on its 5G network in 12 additional markets, continuing the buildout tied to EchoStar's FCC commitments.",
+          "summary": "Boost Mobile switched on its cloud-native 5G network in 12 additional markets, bringing its claimed covered population to roughly 270M and continuing the buildout tied to EchoStar's FCC commitments. The expansion leans on the O-RAN architecture Boost has used since launch, and executives framed it as evidence the network can keep scaling while the parent company works through its spectrum sales — notable because continued buildout spend competes directly with debt service for cash until the AT&T proceeds arrive.",
           "url": "https://www.fiercewireless.com/wireless/echostar-boost-mobile-network-expansion",
           "event_date": "2026-06-02",
           "focus_area": "Major business news"
@@ -18,8 +18,8 @@
         {
           "source": "edgar",
           "item_type": "8-K",
-          "headline": "8-K — Current report",
-          "summary": "EchoStar disclosed a new $500M senior notes offering to refinance debt maturing in 2027.",
+          "headline": "8-K — senior notes offering",
+          "summary": "EchoStar disclosed a new $500M senior secured notes offering at the DISH DBS level, priced at 9.75% and maturing 2031, with proceeds earmarked to refinance the 7.75% notes maturing in 2027. The filing notes the new notes rank pari passu with existing DBS secured debt and carry a springing maturity if the 2027s aren't fully retired by late 2026.\nThe item to watch: the indenture adds a covenant permitting asset-sale proceeds (defined to include spectrum sales) to be applied to the new notes ahead of unsecured maturities — the first time spectrum-sale language has appeared in a DBS indenture, which reads as groundwork for routing part of the AT&T payment to this box.",
           "url": "https://www.sec.gov/Archives/edgar/data/1868275/000110465926061235/0001104659-26-061235-index.htm",
           "event_date": "2026-06-03",
           "focus_area": "Capital structure & financing"

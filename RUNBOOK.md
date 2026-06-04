@@ -106,8 +106,15 @@ Rules:
 - **Only non-baseline items** go in `companies[].items`. Items flagged
   `"baseline": true` are *not* summarized or emailed — their tickers go in
   `baseline_tickers` instead ("Now tracking …" line).
-- Summaries are concise (1–2 lines), **in your own words**, never pasted
-  article/filing text. Tag a `focus_area` where one clearly applies.
+- Summary depth (see CLAUDE.md "Summarize"): **a full paragraph per
+  significant web item; up to two paragraphs for major filings** (10-K, 10-Q,
+  S-1/amendments, significant 8-Ks) built around the filing's biggest items —
+  shorter when little happened. Focus-area topics get the most specifics
+  (figures, exact terms, what changed vs. prior language). Separate paragraphs
+  with newlines inside the `summary` string — the email renders each on its
+  own. Always **your own words**, never pasted article/filing text. Tag a
+  `focus_area` where one clearly applies. `examples/digest.sample.json` shows
+  the expected depth.
 - Companies with no new items are simply omitted.
 - `errors` = EDGAR errors from step 2 plus any web-search failures.
 - `tracked_tickers` = every watchlist entry (shown on no-update days).

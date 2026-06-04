@@ -110,9 +110,18 @@ Handle each company independently — one company's failure must not abort the r
 4. **Dedup → keep only new.** Drop any item whose dedup key is already in the
    ledger. (See Dedup.)
 
-5. **Summarize.** For the new items, write concise, sourced bullets in your own
-   words, grouped by company and then by source (EDGAR before web), each tied to a
-   focus area where relevant, with a link.
+5. **Summarize.** For the new items, write detailed, sourced summaries in your
+   own words, grouped by company and then by source (EDGAR before web), each
+   tied to a focus area where relevant, with a link. Depth expectations:
+   - **Each significant web item: a full paragraph** — what happened, the key
+     numbers/terms, and why it matters for this company.
+   - **Major filings (10-K, 10-Q, S-1 and amendments, significant 8-Ks): up to
+     two paragraphs** built around the biggest items in the filing — but
+     shorter when little of substance changed.
+   - **Anything touching the company's focus areas gets the most detail**:
+     specific figures, exact terms, and what changed versus prior language.
+   - Shallow one-liners are not useful; never paste source text either —
+     detail must come from your own synthesis.
 
 After all companies are processed:
 
@@ -163,8 +172,8 @@ Send via a transactional email API (e.g., Resend) using `EMAIL_API_KEY`, from
 ## Output (email body)
 - Short header line (date, totals).
 - For each company with new items: a `TICKER — Company` subhead, then EDGAR items,
-  then web items, each a one- or two-line summary with a source link. Tag the
-  focus area when relevant.
+  then web items — each a headline line followed by its summary paragraph(s)
+  (see Summarize for depth) with a source link. Tag the focus area when relevant.
 - Companies with nothing new are omitted from the body (but counted in the header).
 - If nothing is new across the whole watchlist: a brief "No updates today." line
   plus the list of tickers being tracked. (User preference: always send this note.)
