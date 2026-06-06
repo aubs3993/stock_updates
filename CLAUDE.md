@@ -103,16 +103,31 @@ Handle each company independently — one company's failure must not abort the r
    focus-keyword hits. Respect SEC limits: ≤10 requests/second, ~100 ms between
    requests, back off on HTTP 429.
 
-3. **Then web.** Search for important recent news (within the lookback window)
+3. **Then web.** Search broadly for recent news (within the lookback window)
    about the company and its focus areas, using web search and/or the Exa
-   connector. Prefer primary and reputable sources.
+   connector. Prefer primary and reputable sources. **Cast a wide net — the
+   goal is to surface as many genuinely distinct new developments as
+   possible, not just the single biggest story.** Run multiple queries: at
+   least one per focus area (or per default focus area), plus general
+   recent-company-news queries, and don't stop at the first hit — gather
+   every distinct topic from the window (separate events, filings-adjacent
+   reporting, analyst rating/price-target actions, product/partnership/
+   customer/contract news, regulatory and legal items, macro/industry
+   developments that specifically move this company). Each distinct
+   development is its own item; only collapse duplicate coverage of the
+   *same* event. When unsure whether something belongs, include it — breadth
+   is preferred, and ledger dedup prevents re-reporting next time.
 
 4. **Dedup → keep only new.** Drop any item whose dedup key is already in the
    ledger. (See Dedup.)
 
 5. **Summarize.** For the new items, write detailed, sourced summaries in your
    own words, grouped by company and then by source (EDGAR before web), each
-   tied to a focus area where relevant, with a link. Depth expectations:
+   tied to a focus area where relevant, with a link. **Cover every distinct
+   new development you found — breadth over selectivity.** Report each
+   separate topic as its own item rather than folding several stories into
+   one or dropping the smaller ones; a fuller digest spanning more topics is
+   the goal. Depth expectations per item:
    - **Each significant web item: a full paragraph** — what happened, the key
      numbers/terms, and why it matters for this company.
    - **Major filings (10-K, 10-Q, S-1 and amendments, significant 8-Ks): up to
@@ -120,8 +135,11 @@ Handle each company independently — one company's failure must not abort the r
      shorter when little of substance changed.
    - **Anything touching the company's focus areas gets the most detail**:
      specific figures, exact terms, and what changed versus prior language.
-   - Shallow one-liners are not useful; never paste source text either —
-     detail must come from your own synthesis.
+   - **Smaller but still-real developments** (a minor analyst note, a routine
+     filing, a secondary news item) still get included — a tight 1–2 sentence
+     entry is fine. Don't omit a genuine development just because it's minor.
+   - Shallow one-liners on *significant* items are not useful; never paste
+     source text either — detail must come from your own synthesis.
 
 After all companies are processed:
 
@@ -174,6 +192,8 @@ Send via a transactional email API (e.g., Resend) using `EMAIL_API_KEY`, from
 - For each company with new items: a `TICKER — Company` subhead, then EDGAR items,
   then web items — each a headline line followed by its summary paragraph(s)
   (see Summarize for depth) with a source link. Tag the focus area when relevant.
+  **List every distinct new item** rather than trimming to a top few — the
+  digest should be expansive and cover as many new topics as the day produced.
 - Companies with nothing new are omitted from the body (but counted in the header).
 - If nothing is new across the whole watchlist: a brief "No updates today." line
   plus the list of tickers being tracked. (User preference: always send this note.)
