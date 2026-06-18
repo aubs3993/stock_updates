@@ -24,7 +24,9 @@ companies:
     company: EchoStar Corporation
     focus_areas:
       - "spectrum-sale proceeds: timing and receipt of the AT&T payment (and the deferred $183M DISH DBS coupon it needs to cure)"
+      - "AT&T spectrum proceeds expected this month: any status update on whether the payment has been received, the exact amount, the closing/payment date, and any delays, conditions, or confirmations"
       - "the SpaceX spectrum payment and EchoStar's SpaceX equity stake: terms, valuation marks, lock-ups, monetization"
+      - "short interest: changes in shares short, short interest as % of float, days-to-cover, and any notable short-squeeze or short-seller commentary"
 
   - ticker: SPCX
     company: Space Exploration Technologies Corp. (SpaceX)
@@ -39,6 +41,14 @@ companies:
     company: Warner Bros. Discovery, Inc.
     focus_areas:
       - "any updates on closing the acquisition: deal terms, regulatory/antitrust review and approvals, shareholder votes, financing, closing timeline, and any competing or revised bids"
+
+  - ticker: LULU
+    company: Lululemon Athletica Inc.
+
+  - ticker: CVNA
+    company: Carvana Co.
+    focus_areas:
+      - "catalyst events that could drive the stock down: negative earnings/guidance, weak unit or GPU trends, debt/liquidity concerns, dilutive equity or debt offerings, insider selling, short-seller reports, downgrades, regulatory or legal actions, or any other negative catalyst"
 
   # To add more later, copy the pattern above. Optional focus_areas example:
   # - ticker: NVDA
