@@ -60,10 +60,14 @@ abort the run.
 
 ### 3. Web search (connector) + dedup (Python)
 For each company in `edgar_new.json`'s `companies` list: search the web for
-important news from the last `lookback_days` days (the field is per-company:
+news from the last `lookback_days` days (the field is per-company:
 30 on baseline runs, else 7), guided by its `focus_areas` (or the default
-focus areas in `CLAUDE.md`). Prefer primary and reputable sources. Collect
-candidates into `/tmp/su/web_items.json`:
+focus areas in `CLAUDE.md`). Prefer primary and reputable sources. **Cast a
+wide net (see CLAUDE.md "Then web"): run multiple queries — at least one per
+focus area plus general recent-news queries — and collect every distinct
+development from the window, not just the single biggest story.** Each
+distinct topic is its own candidate; let `dedup-web` and the ledger drop
+exact repeats. Collect candidates into `/tmp/su/web_items.json`:
 
 ```json
 {"items": [{"ticker": "SATS", "company": "EchoStar Corporation",
@@ -106,6 +110,10 @@ Rules:
 - **Only non-baseline items** go in `companies[].items`. Items flagged
   `"baseline": true` are *not* summarized or emailed — their tickers go in
   `baseline_tickers` instead ("Now tracking …" line).
+- **Breadth (see CLAUDE.md "Summarize"): include every distinct new
+  development as its own item** — don't trim to a top few or fold separate
+  stories together. Smaller-but-real developments still get a tight 1–2
+  sentence entry.
 - Summary depth (see CLAUDE.md "Summarize"): **a full paragraph per
   significant web item; up to two paragraphs for major filings** (10-K, 10-Q,
   S-1/amendments, significant 8-Ks) built around the filing's biggest items —

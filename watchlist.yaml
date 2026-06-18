@@ -33,6 +33,12 @@ companies:
       - "IPO terms in each revised S-1/S-1A: price, share count, valuation, offering structure"
       - "lock-up terms and any changes to lock-up language"
       - "new share issuance and dilution: primary vs. secondary mix, any follow-on offerings"
+      - "index inclusion / fast-tracking: any news on whether S&P (S&P 500/Dow Jones indices), Nasdaq, MSCI, FTSE Russell, or other index providers will add or fast-track SpaceX, including decisions NOT to include it and the stated reasons/timing"
+
+  - ticker: WBD
+    company: Warner Bros. Discovery, Inc.
+    focus_areas:
+      - "any updates on closing the acquisition: deal terms, regulatory/antitrust review and approvals, shareholder votes, financing, closing timeline, and any competing or revised bids"
 
   # To add more later, copy the pattern above. Optional focus_areas example:
   # - ticker: NVDA
